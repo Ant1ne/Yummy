@@ -1,0 +1,26 @@
+.navbar{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.logo {
+    width: 160px;
+}
+
+.subNav {
+    margin: 20px;
+}
+
+.subNav a {
+    margin: 10px;
+    text-decoration: none;
+    font-size: 16px;
+    color: black;
+}
+
+.subNav a:hover {
+    text-decoration: underline;
+    font-size: 19px;
+    color: dimgray;
+}

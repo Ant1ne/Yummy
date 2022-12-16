@@ -1,0 +1,9 @@
+.recipes-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 50px;
+}
+
+img {
+    width: 200px;
+}
