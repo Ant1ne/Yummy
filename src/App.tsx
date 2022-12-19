@@ -32,8 +32,8 @@ export type FavoritesRecipesTypes = {
 
 function App() {
   // declared states
-  const [recipes, setRecipes] = useState<RecipesTypes[]>([]);
   const [userInput, setUserInput] = useState("");
+  const [recipes, setRecipes] = useState<RecipesTypes[]>([]);
   const [favorites, setFavorites] = useState<FavoritesRecipesTypes[]>([]);
 
     // link to api
