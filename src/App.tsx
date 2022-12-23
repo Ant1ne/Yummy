@@ -2,14 +2,14 @@ import React, {useEffect, useState} from "react";
 import "./App.css";
 import {Routes, Route} from "react-router-dom";
 
-import NavBar from "./components/NavBar/NavBar";
-import Home from "./pages/Home/Home";
-import Recipes from "./pages/Recipes/Recipes";
-import Favorites from "./pages/Favorites/Favorites";
-import Contact from "./pages/Contact/Contact";
+import NavBar from "./components/NavBar";
+import Home from "./pages/Home";
+import Contact from "./pages/Contact";
+import RecipePage from "./pages/RecipePage";
+import FavoriteRecipes from "./pages/FavoriteRecipes";
 
 
-export type RecipesTypes = {
+export type Recipe = {
   idMeal: string;
   strMeal: string;
   strCategory: string;
@@ -23,18 +23,11 @@ export type RecipesTypes = {
   strMeasure3: string;
 }
 
-export type FavoritesRecipesTypes = {
-  idMeal: string;
-  strMeal: string;
-  strCategory: string;
-  strMealThumb: string;
-}
-
 function App() {
   // declared states
   const [userInput, setUserInput] = useState("");
-  const [recipes, setRecipes] = useState<RecipesTypes[]>([]);
-  const [favorites, setFavorites] = useState<FavoritesRecipesTypes[]>([]);
+  const [recipes, setRecipes] = useState<Recipe[]>([]);
+  const [favRecipes, setFavRecipes] = useState<Recipe[]>([]);
 
     // link to api
     const url = `https://www.themealdb.com/api/json/v1/1/search.php?s=${userInput}`
@@ -44,9 +37,6 @@ function App() {
     fetch(url)
     .then((res) => res.json())
     .then((data) => {
-      if(data.meals === null) {
-        setRecipes([]);
-      }
       setRecipes(data.meals);
     });
   }, [url]);
@@ -55,18 +45,21 @@ function App() {
   return (
     // routes and route to different components and pages
     <div className="App">
-      <NavBar favorites={favorites} />
+      <NavBar favRecipes={favRecipes} />
       <Routes>
-        <Route path="/" element={<Home />}></Route>
-        <Route path="/recipes" element={<Recipes
+        <Route path="" element={<Home />}></Route>
+        <Route path="/recipes" element={<RecipePage
           recipes={recipes}
-          favorites={favorites}
           setUserInput={setUserInput}
-          setFavorites={setFavorites}/>}>
-        </Route>
-        <Route path="/favorites" element={<Favorites
-          favorites={favorites}/>}>
-        </Route>
+          setFavRecipes={setFavRecipes}
+          favRecipes={favRecipes}
+          />
+        }
+        ></Route>
+        <Route path="/favorites"
+          element={<FavoriteRecipes
+            favRecipes={favRecipes} />}>
+          </Route>
         <Route path="/contact" element={<Contact />}></Route>
       </Routes>
     </div>
