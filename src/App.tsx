@@ -7,6 +7,7 @@ import Home from "./pages/Home";
 import Contact from "./pages/Contact";
 import RecipePage from "./pages/RecipePage";
 import FavoriteRecipes from "./pages/FavoriteRecipes";
+import Footer from "./components/Footer";
 
 
 export type Recipe = {
@@ -62,6 +63,7 @@ function App() {
           </Route>
         <Route path="/contact" element={<Contact />}></Route>
       </Routes>
+      <Footer />
     </div>
   );
 }

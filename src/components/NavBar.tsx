@@ -23,8 +23,10 @@ export default function NavBar({favRecipes}: Prop) {
   return (
     <div className="navBar">
       <div className="logo">
-        <img src={logo} alt="logo" height="50px" width="50px"></img>
-        <h1 className="logoTitle">Yummy</h1>
+        <a href="/" className='link'>
+          <img src={logo} alt="logo" height="50px" width="50px"></img>
+        </a>
+          <h1 className="logoTitle">Yummy</h1>
       </div>
       <div className="subNav">
         <Link className='link' to="">Home</Link>

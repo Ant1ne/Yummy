@@ -2,8 +2,6 @@
 
 The purpose of this assignment is to practice TypeScript
 
-Deployed link: https://ant1ne.github.io/ISA6_Yummy-project/
-
 ## How to run project
 
 1. Step 1: `yarn`

@@ -26,7 +26,6 @@ export default function Home() {
           src={cake}
           alt="cake"
         />
-
         <img
           className="food_img"
           height="150px"
